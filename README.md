@@ -1,26 +1,7 @@
 # clougo-data
 --------------------------------------------
-## 任务内容
---------------------------------------------
-1. 使用 xorm 或 gorm 实现本文的程序，从编程效率、程序结构、服务性能等角度对比 database/sql 与 orm 实现的异同！   
-
-   orm 是否就是实现了 dao 的自动化？
-
-   使用 ab 测试性能
-2. 参考 Java JdbcTemplate 的设计思想，设计 GoSqlTemplate 的原型, 使得 sql 操作对于爱写 sql 的程序猿操作数据库更容易。 
-
-   轻量级别的扩展，程序员的最爱
-
-   程序猿不怕写 sql ，怕的是线程安全处理和错误处理
-
-   sql 的 CRUD 操作 database/sql 具有强烈的模板特征，适当的回调可以让程序员自己编写 sql 语句和处理 RowMapping
- 
-   建立在本文 SQLExecer 接口之上做包装，直观上是有利的选择
-
-   暂时不用考虑占位符等数据库移植问题，方便使用 mysql 或 sqlite3 就可以
- 
-   参考资源：github.com/jmoiron/sqlx
-   
+贡献度： 李海宏 50%
+        李欢  50%
 ## 测试结果
 ---------------------------------------------
 ab压力测试
@@ -83,12 +64,6 @@ Percentage of the requests served within a certain time (ms)
   99%    272
  100%    279 (longest request)
  ```
- ## 评价
- ----------------------------------------
- 从结果看，orm比database/sql要好，其提供了齐全的api，几乎可以实现数据库的全部操作，且orm更符合“entity - dao - service” 层次结构编程模型。   
- 但是database/sql 和 orm 在处理请求的 web 服务上并没有对性能造成太大的影响，毕竟请求主要的时间是耗在 IO，而不是 go 语言的执行上。
- ### ps:
- 1. 这个程序只实现了第一部分的内容（用xorm）
- 2. 需要将userinfo表单的created字段更名为createat
+
 
  
